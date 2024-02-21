@@ -1,4 +1,4 @@
-.body {
+body {
   font-family: lato;
 }
 
@@ -57,11 +57,10 @@
   justify-content: center;
   align-items: center;
   gap: 10px;
-  flex-shrink: 0;
   border-radius: 10px;
   background: #f7e8f6;
 }
-.timer {
+#timer {
   color: #c04abc;
   text-align: center;
   font-family: Lato;
@@ -81,7 +80,7 @@
   justify-content: center;
   flex-shrink: 0;
 }
-.message {
+#message {
   color: #000;
   text-align: center;
   font-family: Lato;
@@ -97,7 +96,7 @@
   flex-direction: row;
 }
 
-.wordinput {
+#wordinput {
   display: flex;
   height: 48px;
   padding: 10px;
@@ -109,7 +108,7 @@
   background: #f1f0f9;
 }
 
-.submitanswer {
+#submitanswer {
   display: flex;
   width: 124px;
   height: 48px;
