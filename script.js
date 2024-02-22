@@ -67,6 +67,14 @@ const easyWords = ["show", "some", "love"];
 let correctWord = easyWords[Math.floor(Math.random() * easyWords.length)];
 console.log(correctWord);
 
+// Let user know what is the first letter of the word
+let firstLetter = document.getElementById("word1char1");
+firstLetter.innerHTML = `${correctWord[0]}`;
+firstLetter.style.backgroundColor = "#ACD8AA";
+
+// set counter for
+let counter = 0;
+console.log(counter);
 //Add event listener to the submit button that will triggers a couple of things:
 let submitButton = document.getElementById("submitanswer");
 console.log(submitButton.textContent);
@@ -91,8 +99,6 @@ submitButton.addEventListener("click", function (event) {
   }
 
   // Reflect the word that the user submitted to the board.
-  let counter = 0;
-  console.log(counter);
   if (userInputLength === 4) {
     counter++;
     console.log(counter);
@@ -106,9 +112,22 @@ submitButton.addEventListener("click", function (event) {
       if (userInputValue[i] === correctWord[i]) {
         column.style.backgroundColor = "#ACD8AA";
         console.log("hello");
-      } else if (correctWord.includes(userInputValue[i]) = true) {
-        column.style.backgroundColor = "#red";
+      } else if (correctWord.includes(userInputValue[i])) {
+        column.style.backgroundColor = "#FFBE86";
       }
     }
+  }
+
+  // Check if the player won or lost
+  if (userInputValue === correctWord) {
+    let resultPopup = document.createElement("p");
+    let resultMessage = document.createTextNode("You have won!");
+    resultPopup.appendChild(resultMessage);
+    const resultContainer = document.getElementById("result-container");
+    resultContainer.append(resultPopup);
+    resultContainer.style.display = "block";
+    console.log("you win");
+  } else if (userInputValue !== correctWord && counter === 5) {
+    console.log("you lose");
   }
 });
