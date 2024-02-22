@@ -28,12 +28,10 @@ body {
 
 /* GRIDS */
 .grid-container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(5, 1fr);
-  gap: 8px;
-  width: 360px;
-  height: 440px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .grid-item {
@@ -43,9 +41,17 @@ body {
   align-items: center;
   gap: 10px;
   flex: 1 0 0;
-  align-self: stretch;
   border: 5px solid #343434;
   background: #f1f0f9;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  width: 360px;
+  height: 80px;
+  margin: 8px;
 }
 
 /* COUNTDOWN TIMER */
@@ -89,6 +95,7 @@ body {
   font-weight: 500;
   line-height: normal;
   letter-spacing: 4.8px;
+  text-transform: uppercase;
 }
 
 .input-container {

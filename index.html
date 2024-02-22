@@ -14,43 +14,56 @@
   </head>
   <body>
     <div class="main-container">
-        <div id="popup-window">
-            <h1>Pop-up Window</h1>
-            <p>This is a pop-up window.</p>
-            <button id="startgame">start</button>
-          </div>        
+      <div id="popup-window">
+        <h1>Pop-up Window</h1>
+        <p>This is a pop-up window.</p>
+        <input id="nameinput" type="text" />
+        <button id="startgame">start</button>
+      </div>
       <div class="message-container">
-        <p id="message">WELCOME <NAME>, YOU ARE CURRENTLY AT <LEVEL NO>
-            GUESS THE WORD TO WIN!</p>
+        <p id="message"></p>
       </div>
       <div class="time-container">
         <p id="timer">00:00</p>
       </div>
-      <div class="grid-container">
-        <div class="grid-item" id="word1char1">1</div>
-        <div class="grid-item" id="word1char2">2</div>
-        <div class="grid-item" id="word1char3">3</div>
-        <div class="grid-item" id="word1char4">4</div>
-        <div class="grid-item" id="word2char1">1</div>
-        <div class="grid-item" id="word2char2">2</div>
-        <div class="grid-item" id="word2char3">3</div>
-        <div class="grid-item" id="word2char4">4</div>
-        <div class="grid-item" id="word3char1">1</div>
-        <div class="grid-item" id="word3char2">2</div>
-        <div class="grid-item" id="word3char3">3</div>
-        <div class="grid-item" id="word3char4">4</div>
-        <div class="grid-item" id="word4char1">1</div>
-        <div class="grid-item" id="word4char2">2</div>
-        <div class="grid-item" id="word4char3">3</div>
-        <div class="grid-item" id="word4char4">4</div>
-        <div class="grid-item" id="word5char1">1</div>
-        <div class="grid-item" id="word5char2">2</div>
-        <div class="grid-item" id="word5char3">3</div>
-        <div class="grid-item" id="word5char4">4</div>
+      <div id="grid-container">
+        <div class="row">
+          <div class="grid-item" id="word1char1"></div>
+          <div class="grid-item" id="word1char2"></div>
+          <div class="grid-item" id="word1char3"></div>
+          <div class="grid-item" id="word1char4"></div>
+        </div>
+        <div class="row">
+          <div class="grid-item" id="word2char1"></div>
+          <div class="grid-item" id="word2char2"></div>
+          <div class="grid-item" id="word2char3"></div>
+          <div class="grid-item" id="word2char4"></div>
+        </div>
+        <div class="row">
+          <div class="grid-item" id="word3char1"></div>
+          <div class="grid-item" id="word3char2"></div>
+          <div class="grid-item" id="word3char3"></div>
+          <div class="grid-item" id="word3char4"></div>
+        </div>
+        <div class="row">
+          <div class="grid-item" id="word4char1"></div>
+          <div class="grid-item" id="word4char2"></div>
+          <div class="grid-item" id="word4char3"></div>
+          <div class="grid-item" id="word4char4"></div>
+        </div>
+        <div class="row">
+          <div class="grid-item" id="word5char1"></div>
+          <div class="grid-item" id="word5char2"></div>
+          <div class="grid-item" id="word5char3"></div>
+          <div class="grid-item" id="word5char4"></div>
+        </div>
       </div>
       <div class="input-container">
-        <input id="wordinput" type="text"/>
+        <input id="wordinput" type="text" />
         <button id="submitanswer">submit</button>
+      </div>
+      <div id="message-container">
+        <p id="p1"></p>
       </div>
     </div>
     <script src="script.js"></script>

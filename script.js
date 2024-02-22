@@ -2,6 +2,7 @@
 // Get the elements by their ID
 let popupWindow = document.getElementById("popup-window");
 let startGame = document.getElementById("startgame");
+console.log(startGame);
 
 // Show the pop-up window on pageload
 window.addEventListener("load", function () {
@@ -12,8 +13,19 @@ window.addEventListener("load", function () {
 // Add event listener to the startbutton for 2 main actions to take place.
 startGame.addEventListener("click", function (event) {
   event.preventDefault();
+
   // close the popup
   popupWindow.style.display = "none";
+
+  //CUSTOMISE THE WELCOME MESSSAGE BASED ON THE PLAYER"S NAME
+  let userName = document.getElementById("nameinput");
+  let userNameValue = userName.value;
+  console.log(userNameValue);
+  const message = document.getElementById("message");
+  console.log(message);
+  message.innerHTML = `<p>welcome ${userNameValue}, YOU ARE CURRENTLY AT LEVEL 1! <br>
+  GUESS THE WORD TO WIN!</p>`;
+
   // Start countdown time
   const timer = document.getElementById("timer");
   let timerInterval; // declares a variable named timerInterval but doesn't assign any value to it first
@@ -55,4 +67,48 @@ const easyWords = ["show", "some", "love"];
 let correctWord = easyWords[Math.floor(Math.random() * easyWords.length)];
 console.log(correctWord);
 
-//
+//Add event listener to the submit button that will triggers a couple of things:
+let submitButton = document.getElementById("submitanswer");
+console.log(submitButton.textContent);
+
+submitButton.addEventListener("click", function (event) {
+  event.preventDefault();
+
+  // Creating an error message if word input is NOT 4
+  let userInput = document.getElementById("wordinput");
+  let userInputValue = userInput.value;
+  let userInputLength = userInput.value.length;
+  if (userInputLength !== 4) {
+    let errorPara = document.createElement("p");
+    let errorMessage = document.createTextNode("error message goes here");
+    errorPara.appendChild(errorMessage);
+    console.log(errorPara);
+    // let messageContainer = document.getElementbyId("message-container");
+
+    const element = document.getElementById("message-container");
+    const child = document.getElementById("p1");
+    element.insertBefore(errorPara, child);
+  }
+
+  // Reflect the word that the user submitted to the board.
+  let counter = 0;
+  console.log(counter);
+  if (userInputLength === 4) {
+    counter++;
+    console.log(counter);
+    for (let i = 0; i < userInputLength; i++) {
+      let gridContainer = document.getElementById("grid-container"); // declaring grandparent
+      let row = gridContainer.children[counter - 1]; // acessing the first child of the granparent - should coincide with the number of tries
+      let column = row.children[i];
+      console.log(column);
+      console.log(userInputValue[i]);
+      column.innerHTML = `${userInputValue[i]}`;
+      if (userInputValue[i] === correctWord[i]) {
+        column.style.backgroundColor = "#ACD8AA";
+        console.log("hello");
+      } else if (correctWord.includes(userInputValue[i]) = true) {
+        column.style.backgroundColor = "#red";
+      }
+    }
+  }
+});
