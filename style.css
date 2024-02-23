@@ -6,6 +6,15 @@ body {
   font-family: "Lato";
 }
 
+input::placeholder {
+  font-weight: normal;
+  opacity: 0.4;
+  color: #343434;
+  font-family: Lato;
+  font-size: 20px;
+  margin: 0px 8px 0px 8px;
+}
+
 /* OVERLAY */
 #overlay {
   position: fixed; /* Sit on top of the page content */
@@ -16,7 +25,8 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+  background-color: #343434; /* Black background with opacity */
+  opacity: 0.6;
   z-index: 1; /* Specify a stack order in case you're using a different order for other elements */
   display: block;
 }
@@ -25,7 +35,7 @@ body {
 .popup-style {
   position: fixed;
   width: 600px;
-  height: 500px;
+  height: fit-content;
   border-radius: 10px;
   background: #fff;
   padding: 48px;
@@ -38,9 +48,11 @@ body {
   display: none;
 }
 
-.popup-style {
+.popup-text-container {
   display: flex;
   flex-direction: column;
+  margin: 8px;
+  gap: 0px;
 }
 
 .popup-text {
@@ -49,22 +61,65 @@ body {
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
-  line-height: normal;
+  line-height: 140%;
   letter-spacing: 1px;
-  margin: 8px;
 }
 
-popup-container {
+.popup-style {
+  display: flex;
+  flex-direction: column;
+}
+
+.popup-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 8px;
+  gap: 16px;
+
+  .input-style {
+    display: flex;
+    width: 60%;
+    height: 48px;
+    padding: 8px;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    flex: 1 0 0;
+    border-radius: 10px;
+    background: #f1f0f9;
+    font-family: lato;
+    font-size: 20px;
+    margin: 0px 8px 0px 8px;
+  }
+
+  .primary-button {
+    display: flex;
+    width: 60%;
+    height: 48px;
+    padding: 8px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: #c04abc;
+    color: #fff;
+    text-align: center;
+    font-family: Lato;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    align-self: right;
+    text-transform: uppercase;
+  }
 }
 
 /* MESSAGE */
 .message-container {
   display: flex;
-  width: 60%;
+  width: 100%;
   height: auto;
   flex-direction: column;
   justify-content: center;
@@ -149,7 +204,47 @@ popup-container {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  width: 360px;
   margin: 16px;
+}
+
+#wordinput {
+  display: flex;
+  width: auto;
+  height: 48px;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex: 1 0 0;
+  border-radius: 10px;
+  background: #f1f0f9;
+  margin: 0px 8px 0px 0px;
+  font-family: lato;
+  font-size: 20px;
+}
+
+#submitanswer {
+  display: flex;
+  width: 124px;
+  height: 48px;
+  padding: 8px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: #c04abc;
+  color: #fff;
+  text-align: center;
+  font-family: Lato;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  align-self: right;
+  margin: 0px 0px 0px 8px;
+  text-transform: uppercase;
 }
 
 /* OTHER CONTAINERS */
@@ -178,7 +273,7 @@ popup-container {
 }
 
 /* BUTTONS & INPUTS */
-.primary-button {
+/* .primary-button {
   display: flex;
   width: 124px;
   height: 48px;
@@ -197,9 +292,10 @@ popup-container {
   font-weight: 700;
   line-height: normal;
   align-self: right;
-}
+  margin: 8px;
+} */
 
-.input-style {
+/* .input-style {
   display: flex;
   height: 48px;
   padding: 10px;
@@ -209,7 +305,8 @@ popup-container {
   flex: 1 0 0;
   border-radius: 10px;
   background: #f1f0f9;
-}
+  margin: 0px 8px 0px 0px;
+} */
 
 /* TEXT */
 h3 {

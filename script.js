@@ -2,7 +2,7 @@
 // Get the elements by their ID
 const popupWindow = document.getElementById("popup-window");
 const startGame = document.getElementById("startgame");
-let overlay = document.getElementById("overlay");
+const overlay = document.getElementById("overlay");
 console.log(startGame);
 
 // Show the pop-up window on pageload
@@ -22,8 +22,8 @@ startGame.addEventListener("click", function (event) {
   overlay.style.display = "none";
 
   //CUSTOMISE THE WELCOME MESSSAGE BASED ON THE PLAYER"S NAME
-  let userName = document.getElementById("nameinput");
-  let userNameValue = userName.value;
+  const userName = document.getElementById("nameinput");
+  const userNameValue = userName.value;
   console.log(userNameValue);
   const message = document.getElementById("message");
   console.log(message);
@@ -90,7 +90,8 @@ submitButton.addEventListener("click", function (event) {
 
   // Creating an error message if word input is NOT 4
   let userInput = document.getElementById("wordinput");
-  let userInputValue = userInput.value;
+  let userInputValue = userInput.value.toLowerCase();
+  console.log(userInputValue);
   let userInputLength = userInput.value.length;
   if (userInputLength !== 4) {
     let errorPara = document.createElement("p");

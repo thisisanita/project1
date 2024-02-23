@@ -16,23 +16,26 @@
     <div class="main-container">
       <div id="overlay"></div>
       <div class="popup-style" id="popup-window">
-        <h3>Welcome to</h3>
-        <p class="popup-text">
-          Looking to have a little fun? <br />
-          Play Wordle now!<br />
-          You have only 3 minutes and 5 chances to guess the correct word that
-          will bring you to the next level. <br />
-          Once you have a word, click on the submit button. If the word
-          submitted has the same letters that are present in the correct word,
-          that letter will light up orange. And if you are lucky enough to have
-          the letters in the same exact position as the correct word, that
-          letter will light up green. Don’t worry, hints are provided if you
-          need help. But every time help is asked, you will be tasked to solve a
-          math question and the time will still be running.... Are you ready?
-        </p>
+        <h3>Welcome to wordle+</h3>
+        <div class="popup-text-container">
+          <p class="popup-text">
+            You have 2 minutes and 5 chances to guess the correct word. <br />
+            <br />For each word you guess, the right letters will light up
+            orange and the right letters in the right positions will light up
+            green.<br />
+            <br />
+            Start playing now!<br />
+            <br />
+          </p>
+        </div>
         <div class="popup-container">
+          <input
+            class="input-style"
+            id="nameinput"
+            type="text"
+            placeholder="Enter your name"
+          />
           <button class="primary-button" id="startgame">start</button>
-          <input class="input-style" id="nameinput" type="text" />
         </div>
       </div>
       <div class="message-container">
