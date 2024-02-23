@@ -1,7 +1,8 @@
 // When the user lands on the landing page, open the popup
 // Get the elements by their ID
-let popupWindow = document.getElementById("popup-window");
-let startGame = document.getElementById("startgame");
+const popupWindow = document.getElementById("popup-window");
+const startGame = document.getElementById("startgame");
+let overlay = document.getElementById("overlay");
 console.log(startGame);
 
 // Show the pop-up window on pageload
@@ -17,6 +18,9 @@ startGame.addEventListener("click", function (event) {
   // close the popup
   popupWindow.style.display = "none";
 
+  //remove the overlay
+  overlay.style.display = "none";
+
   //CUSTOMISE THE WELCOME MESSSAGE BASED ON THE PLAYER"S NAME
   let userName = document.getElementById("nameinput");
   let userNameValue = userName.value;
@@ -31,7 +35,8 @@ startGame.addEventListener("click", function (event) {
   let timerInterval; // declares a variable named timerInterval but doesn't assign any value to it first
 
   // Defines a function that clear any existing timer and set the timer initial value
-  startTimer = () => {
+  // put const in front of timer
+  const startTimer = () => {
     clearInterval(timerInterval); // Clear any existing interval
     let second = 0,
       minute = 2; // Set initial timer value to 2 minutes
@@ -61,7 +66,7 @@ startGame.addEventListener("click", function (event) {
 });
 
 // create an array and assign the words for the easy level
-const easyWords = ["show", "some", "love"];
+const easyWords = ["read", "show", "code"];
 
 // create a random function to select a word from the array
 let correctWord = easyWords[Math.floor(Math.random() * easyWords.length)];
@@ -72,9 +77,10 @@ let firstLetter = document.getElementById("word1char1");
 firstLetter.innerHTML = `${correctWord[0]}`;
 firstLetter.style.backgroundColor = "#ACD8AA";
 
-// set counter for
+// set counter to track the number of attempts
 let counter = 0;
 console.log(counter);
+
 //Add event listener to the submit button that will triggers a couple of things:
 let submitButton = document.getElementById("submitanswer");
 console.log(submitButton.textContent);
@@ -105,7 +111,7 @@ submitButton.addEventListener("click", function (event) {
     for (let i = 0; i < userInputLength; i++) {
       let gridContainer = document.getElementById("grid-container"); // declaring grandparent
       let row = gridContainer.children[counter - 1]; // acessing the first child of the granparent - should coincide with the number of tries
-      let column = row.children[i];
+      let column = row.children[i]; // accessing the grandparent's children's children
       console.log(column);
       console.log(userInputValue[i]);
       column.innerHTML = `${userInputValue[i]}`;
@@ -117,6 +123,9 @@ submitButton.addEventListener("click", function (event) {
       }
     }
   }
+
+  // Clear the exisiting user input
+  userInput.value = "";
 
   // Check if the player won or lost
   if (userInputValue === correctWord) {
