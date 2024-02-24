@@ -25,7 +25,6 @@
             green.<br />
             <br />
             Start playing now!<br />
-            <br />
           </p>
         </div>
         <div class="popup-container">
@@ -77,14 +76,27 @@
         </div>
       </div>
       <div class="input-container">
-        <input class="input-style" id="wordinput" type="text" />
+        <input
+          class="input-style"
+          id="wordinput"
+          placeholder="Guess the word"
+          type="text"
+          maxlength="4"
+          minlength="4"
+        />
         <button class="primary-button" id="submitanswer">submit</button>
       </div>
-      <div id="message-container">
-        <p id="p1"></p>
+      <div class="error-container">
+        <p id="errormessage"></p>
       </div>
-      <div id="result-container">
-        <p id="results"></p>
+      <div class="result-style" id="result-window">
+        <h3>Results</h3>
+        <div class="result-text-container">
+          <p class="result-text" id="resulttext">test</p>
+        </div>
+        <div class="popup-container">
+          <button class="primary-button" id="continue">continue</button>
+        </div>
       </div>
     </div>
     <script src="script.js"></script>

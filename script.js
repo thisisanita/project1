@@ -1,9 +1,62 @@
-// When the user lands on the landing page, open the popup
-// Get the elements by their ID
+// Array containing all the easy level words
+const easyWords = ["read", "show", "code"];
+
+// Select a random word from the easy level array of words
+// This will be the word the play has to guess
+const correctWord = easyWords[Math.floor(Math.random() * easyWords.length)];
+console.log(correctWord);
+
+// Reflect the first letter of the word to the gameboard
+const firstLetter = document.getElementById("word1char1");
+firstLetter.innerHTML = `${correctWord[0]}`;
+firstLetter.style.backgroundColor = "#ACD8AA";
+
+// Set counter to track the number of game attempts
+let counter = 0;
+console.log(counter);
+
+// Declare other variables
 const popupWindow = document.getElementById("popup-window");
 const startGame = document.getElementById("startgame");
 const overlay = document.getElementById("overlay");
-console.log(startGame);
+const popupResult = document.getElementById("result-window");
+const resultText = document.getElementById("resulttext");
+const timer = document.getElementById("timer");
+
+// Declare timerInterval variable without any value first
+let timerInterval;
+
+// Create timer function for 2 minutes
+const startTimer = () => {
+  clearInterval(timerInterval); // Clear any existing interval
+  let second = 0,
+    minute = 2;
+  // set an interval for every 1000ms
+  timerInterval = setInterval(() => {
+    //Ternary operator used here
+    timer.innerHTML =
+      (minute < 10 ? "0" + minute : minute) +
+      ":" +
+      (second < 10 ? "0" + second : second); // If minute is less than then, add a 0 in front of the minute. else, just minute will do. Same for seconds.
+    if (second === 0) {
+      if (minute === 0) {
+        clearInterval(timerInterval); // Clear the timer
+        // Inform player that they have lost
+        overlay.style.display = "block";
+        resultText.innerHTML = `<p>Sorry, you took too long!<br />The word is <span class="correct-style">${correctWord}</span>.<br /><br />Do you want to try again?</p>`;
+        const restartButton = document.getElementById("continue");
+        restartButton.innerText = "Restart Game";
+        popupResult.style.display = "block";
+      } else {
+        minute--;
+        second = 59; // Set seconds to 59 for smooth countdown
+      }
+    } else {
+      second--;
+    }
+    console.log(timer.innerHTML);
+  }, 1000);
+};
 
 // Show the pop-up window on pageload
 window.addEventListener("load", function () {
@@ -11,17 +64,18 @@ window.addEventListener("load", function () {
     popupWindow.style.display = "block";
   }, 1000);
 });
-// Add event listener to the startbutton for 2 main actions to take place.
+
+// Add event listener to the start button on the popup window for several actions to take place.
 startGame.addEventListener("click", function (event) {
   event.preventDefault();
 
-  // close the popup
+  // Close the introductory popup
   popupWindow.style.display = "none";
 
-  //remove the overlay
+  // Remove the overlay
   overlay.style.display = "none";
 
-  //CUSTOMISE THE WELCOME MESSSAGE BASED ON THE PLAYER"S NAME
+  // Customize the introductory message based on player's name
   const userName = document.getElementById("nameinput");
   const userNameValue = userName.value;
   console.log(userNameValue);
@@ -30,83 +84,30 @@ startGame.addEventListener("click", function (event) {
   message.innerHTML = `<p>welcome ${userNameValue}, YOU ARE CURRENTLY AT LEVEL 1! <br>
   GUESS THE WORD TO WIN!</p>`;
 
-  // Start countdown time
-  const timer = document.getElementById("timer");
-  let timerInterval; // declares a variable named timerInterval but doesn't assign any value to it first
-
-  // Defines a function that clear any existing timer and set the timer initial value
-  // put const in front of timer
-  const startTimer = () => {
-    clearInterval(timerInterval); // Clear any existing interval
-    let second = 0,
-      minute = 2; // Set initial timer value to 2 minutes
-
-    // set an interval for every 1000ms
-    timerInterval = setInterval(() => {
-      //Ternary operator used here
-      timer.innerHTML =
-        (minute < 10 ? "0" + minute : minute) +
-        ":" +
-        (second < 10 ? "0" + second : second); // if minute is less than then, add a 0 in front of the minute. else, just minute will do. Same for seconds.
-      if (second === 0) {
-        if (minute === 0) {
-          clearInterval(timerInterval);
-          alert("Time is up!"); // NEED TO OPEN ANOTHER POP UP HERE TO TELL PLAYER HE/SHE HAS LOST THE GAME
-        } else {
-          minute--;
-          second = 59; // Set seconds to 59 for smooth countdown
-        }
-      } else {
-        second--;
-      }
-      console.log(timer.innerHTML);
-    }, 1000);
-  };
-  startTimer(); // Call the startTimer function to initiate the countdown
+  // Start countdown timer
+  startTimer();
 });
 
-// create an array and assign the words for the easy level
-const easyWords = ["read", "show", "code"];
-
-// create a random function to select a word from the array
-let correctWord = easyWords[Math.floor(Math.random() * easyWords.length)];
-console.log(correctWord);
-
-// Let user know what is the first letter of the word
-let firstLetter = document.getElementById("word1char1");
-firstLetter.innerHTML = `${correctWord[0]}`;
-firstLetter.style.backgroundColor = "#ACD8AA";
-
-// set counter to track the number of attempts
-let counter = 0;
-console.log(counter);
-
-//Add event listener to the submit button that will triggers a couple of things:
-let submitButton = document.getElementById("submitanswer");
+// Add event listener to the submit button that will triggers a couple of things
+const submitButton = document.getElementById("submitanswer");
 console.log(submitButton.textContent);
 
 submitButton.addEventListener("click", function (event) {
   event.preventDefault();
 
-  // Creating an error message if word input is NOT 4
-  let userInput = document.getElementById("wordinput");
-  let userInputValue = userInput.value.toLowerCase();
+  // Create an error message if word input is NOT 4
+  const userInput = document.getElementById("wordinput");
+  const userInputValue = userInput.value.toLowerCase();
   console.log(userInputValue);
-  let userInputLength = userInput.value.length;
+  const userInputLength = userInput.value.length;
   if (userInputLength !== 4) {
-    let errorPara = document.createElement("p");
-    let errorMessage = document.createTextNode("error message goes here");
-    errorPara.appendChild(errorMessage);
-    console.log(errorPara);
-    // let messageContainer = document.getElementbyId("message-container");
-
-    const element = document.getElementById("message-container");
-    const child = document.getElementById("p1");
-    element.insertBefore(errorPara, child);
+    const errormessage = document.getElementById("errormessage");
+    errormessage.innerHTML = `Word should contain 4 letters.`;
   }
 
-  // Reflect the word that the user submitted to the board.
+  // Reflect the word that the user submitted to the gameboard
   if (userInputLength === 4) {
+    errormessage.innerHTML = "";
     counter++;
     console.log(counter);
     for (let i = 0; i < userInputLength; i++) {
@@ -128,16 +129,19 @@ submitButton.addEventListener("click", function (event) {
   // Clear the exisiting user input
   userInput.value = "";
 
-  // Check if the player won or lost
+  //  Check and inform the player if they have won or lost
   if (userInputValue === correctWord) {
-    let resultPopup = document.createElement("p");
-    let resultMessage = document.createTextNode("You have won!");
-    resultPopup.appendChild(resultMessage);
-    const resultContainer = document.getElementById("result-container");
-    resultContainer.append(resultPopup);
-    resultContainer.style.display = "block";
-    console.log("you win");
+    window.clearInterval(timerInterval);
+    overlay.style.display = "block";
+    resultText.innerHTML = `<p>Congratulations, you have guessed correctly!<br />The word is <span class="correct-style">${correctWord}</span>.<br /><br />Are you ready for the next level? </p>`;
+    popupResult.style.display = "block";
   } else if (userInputValue !== correctWord && counter === 5) {
     console.log("you lose");
+    window.clearInterval(timerInterval);
+    overlay.style.display = "block";
+    resultText.innerHTML = `<p>Sorry, you did not guess correctly!<br />The word is <span class="correct-style">${correctWord}</span>.<br /><br />Do you want to try again?</p>`;
+    const restartButton = document.getElementById("continue");
+    restartButton.innerText = "Restart Game";
+    popupResult.style.display = "block";
   }
 });

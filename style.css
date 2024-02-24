@@ -14,6 +14,10 @@ input::placeholder {
   font-size: 20px;
   margin: 0px 8px 0px 8px;
 }
+input:focus {
+  outline: none;
+  border: solid 2px #e057db;
+}
 
 /* OVERLAY */
 #overlay {
@@ -26,7 +30,7 @@ input::placeholder {
   right: 0;
   bottom: 0;
   background-color: #343434; /* Black background with opacity */
-  opacity: 0.6;
+  opacity: 0.7;
   z-index: 1; /* Specify a stack order in case you're using a different order for other elements */
   display: block;
 }
@@ -50,24 +54,19 @@ input::placeholder {
 
 .popup-text-container {
   display: flex;
-  flex-direction: column;
   margin: 8px;
   gap: 0px;
+  padding: 8px;
 }
 
 .popup-text {
-  color: #000;
+  color: #343434;
   font-family: Lato;
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
   line-height: 140%;
   letter-spacing: 1px;
-}
-
-.popup-style {
-  display: flex;
-  flex-direction: column;
 }
 
 .popup-container {
@@ -82,7 +81,7 @@ input::placeholder {
     display: flex;
     width: 60%;
     height: 48px;
-    padding: 8px;
+    padding: 8px 16px 8px 16px;
     justify-content: center;
     align-items: center;
     gap: 16px;
@@ -98,7 +97,7 @@ input::placeholder {
     display: flex;
     width: 60%;
     height: 48px;
-    padding: 8px;
+    padding: 8px 16px 8px 16px;
     justify-content: center;
     align-items: center;
     flex-shrink: 0;
@@ -113,20 +112,22 @@ input::placeholder {
     line-height: normal;
     align-self: right;
     text-transform: uppercase;
+    letter-spacing: 1.6px;
   }
 }
 
-/* MESSAGE */
+/* WELCOME MESSAGE */
 .message-container {
   display: flex;
   width: 100%;
   height: auto;
   flex-direction: column;
   justify-content: center;
+  margin: 8px;
 }
 
 #message {
-  color: #000;
+  color: #343434;
   text-align: center;
   font-size: 24px;
   font-style: normal;
@@ -134,13 +135,15 @@ input::placeholder {
   line-height: 160%;
   letter-spacing: 4.8px;
   text-transform: uppercase;
+  padding: 0px;
+  margin: 0px;
 }
 
 /* COUNTDOWN TIMER */
 .time-container {
   display: flex;
   width: 360px;
-  height: 77px;
+  height: 80px;
   padding: 24px;
   justify-content: center;
   align-items: center;
@@ -204,34 +207,34 @@ input::placeholder {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+
   width: 360px;
   margin: 16px;
+  gap: 8px;
 }
 
 #wordinput {
   display: flex;
-  width: auto;
+  width: 65%;
   height: 48px;
-  padding: 10px;
+  padding: 8px 16px 8px 16px;
   justify-content: center;
   align-items: center;
   gap: 10px;
   flex: 1 0 0;
   border-radius: 10px;
   background: #f1f0f9;
-  margin: 0px 8px 0px 0px;
   font-family: lato;
   font-size: 20px;
 }
 
 #submitanswer {
   display: flex;
-  width: 124px;
+  width: 35%;
   height: 48px;
-  padding: 8px;
+  padding: 8px 16px 8px 16px;
   justify-content: center;
   align-items: center;
-  gap: 10px;
   flex-shrink: 0;
   border-radius: 10px;
   background: #c04abc;
@@ -243,27 +246,28 @@ input::placeholder {
   font-weight: 700;
   line-height: normal;
   align-self: right;
-  margin: 0px 0px 0px 8px;
   text-transform: uppercase;
+  letter-spacing: 1.6px;
+}
+
+/* ERROR CONTAINER & MESSAGE */
+
+.error-container {
+  display: flex;
+  height: 24px;
+  width: 360px;
+  position: relative;
+}
+
+#errormessage {
+  font-size: 16px;
+  color: red;
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
 
 /* OTHER CONTAINERS */
-
-#result-container {
-  position: fixed;
-  width: 300px;
-  height: 200px;
-  background: white;
-  border: 1px solid black;
-  padding: 10px;
-  margin: auto;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 10;
-  display: none;
-}
 
 .main-container {
   display: flex;
@@ -272,41 +276,52 @@ input::placeholder {
   align-items: center;
 }
 
-/* BUTTONS & INPUTS */
-/* .primary-button {
-  display: flex;
-  width: 124px;
-  height: 48px;
-  padding: 8px;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  flex-shrink: 0;
+/* RESULTS */
+
+.result-style {
+  position: fixed;
+  width: 600px;
+  height: fit-content;
   border-radius: 10px;
-  background: #c04abc;
-  color: #fff;
-  text-align: center;
+  background: #fff;
+  padding: 48px;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  display: none;
+}
+
+.correct-style {
+  text-transform: uppercase;
+  font-weight: 800;
+  /* background-color: #acd8aa; */
+  letter-spacing: 2px;
+}
+
+.result-text-container {
+  display: flex;
+  margin: 8px;
+  padding: 8px;
+  gap: 0px;
+  /* border: solid 2px black; */
+  width: 100%;
+  height: fit-content;
+  align-items: left;
+}
+
+.result-text {
+  color: #343434;
   font-family: Lato;
   font-size: 20px;
   font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  align-self: right;
-  margin: 8px;
-} */
-
-/* .input-style {
-  display: flex;
-  height: 48px;
-  padding: 10px;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  flex: 1 0 0;
-  border-radius: 10px;
-  background: #f1f0f9;
-  margin: 0px 8px 0px 0px;
-} */
+  font-weight: 400;
+  line-height: 140%;
+  letter-spacing: 1px;
+  margin: 0px;
+}
 
 /* TEXT */
 h3 {
@@ -319,4 +334,5 @@ h3 {
   line-height: normal;
   letter-spacing: 4.8px;
   text-transform: uppercase;
+  margin: 8px;
 }
