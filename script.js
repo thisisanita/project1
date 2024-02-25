@@ -2,7 +2,7 @@
 const easyWords = ["read", "show", "code"];
 
 // Select a random word from the easy level array of words
-// This will be the word the play has to guess
+// This will be the word the player has to guess
 const correctWord = easyWords[Math.floor(Math.random() * easyWords.length)];
 
 // Reflect the first letter of the word to the gameboard
@@ -131,13 +131,11 @@ submitButton.addEventListener("click", function (event) {
   //  Check and inform the player if they have won or lost
   if (userInputValue === correctWord) {
     window.clearInterval(timerInterval);
-    // overlay.style.display = "block";
     overlayBlock();
     resultText.innerHTML = `<p>Congratulations, you have guessed correctly!<br />The word is <span class="correct-style">${correctWord}</span>.<br /><br />Are you ready for the next level? </p>`;
     popupResult.style.display = "block";
   } else if (userInputValue !== correctWord && counter === 5) {
     window.clearInterval(timerInterval);
-    // overlay.style.display = "block";
     overlayBlock();
     resultText.innerHTML = `<p>Sorry, you did not guess correctly!<br />The word is <span class="correct-style">${correctWord}</span>.<br /><br />Do you want to try again?</p>`;
     const restartButton = document.getElementById("continue");
