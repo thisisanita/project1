@@ -133,13 +133,17 @@ submitButton.addEventListener("click", function (event) {
     window.clearInterval(timerInterval);
     overlayBlock();
     resultText.innerHTML = `<p>Congratulations, you have guessed correctly!<br />The word is <span class="correct-style">${correctWord}</span>.<br /><br />Are you ready for the next level? </p>`;
-    popupResult.style.display = "block";
+    setTimeout(function open(event) {
+      popupResult.style.display = "block";
+    }, 1000);
   } else if (userInputValue !== correctWord && counter === 5) {
     window.clearInterval(timerInterval);
     overlayBlock();
     resultText.innerHTML = `<p>Sorry, you did not guess correctly!<br />The word is <span class="correct-style">${correctWord}</span>.<br /><br />Do you want to try again?</p>`;
     const restartButton = document.getElementById("continue");
     restartButton.innerText = "Restart Game";
-    popupResult.style.display = "block";
+    setTimeout(function open(event) {
+      popupResult.style.display = "block";
+    }, 1000);
   }
 });
