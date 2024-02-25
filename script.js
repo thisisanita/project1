@@ -4,16 +4,14 @@ const easyWords = ["read", "show", "code"];
 // Select a random word from the easy level array of words
 // This will be the word the play has to guess
 const correctWord = easyWords[Math.floor(Math.random() * easyWords.length)];
-console.log(correctWord);
 
 // Reflect the first letter of the word to the gameboard
-const firstLetter = document.getElementById("word1char1");
+let firstLetter = document.getElementById("word1char1");
 firstLetter.innerHTML = `${correctWord[0]}`;
 firstLetter.style.backgroundColor = "#ACD8AA";
 
 // Set counter to track the number of game attempts
 let counter = 0;
-console.log(counter);
 
 // Declare other variables
 const popupWindow = document.getElementById("popup-window");
@@ -23,10 +21,8 @@ const popupResult = document.getElementById("result-window");
 const resultText = document.getElementById("resulttext");
 const timer = document.getElementById("timer");
 
-// Declare timerInterval variable without any value first
-let timerInterval;
-
 // Create timer function for 2 minutes
+let timerInterval; // Declare timerInterval variable without any value first
 const startTimer = () => {
   clearInterval(timerInterval); // Clear any existing interval
   let second = 0,
@@ -42,7 +38,7 @@ const startTimer = () => {
       if (minute === 0) {
         clearInterval(timerInterval); // Clear the timer
         // Inform player that they have lost
-        overlay.style.display = "block";
+        overlayBlock();
         resultText.innerHTML = `<p>Sorry, you took too long!<br />The word is <span class="correct-style">${correctWord}</span>.<br /><br />Do you want to try again?</p>`;
         const restartButton = document.getElementById("continue");
         restartButton.innerText = "Restart Game";
@@ -58,7 +54,16 @@ const startTimer = () => {
   }, 1000);
 };
 
-// Show the pop-up window on pageload
+// Create function to switch overlay on and off
+const overlayBlock = () => {
+  overlay.style.display = "block";
+};
+
+const overlayNone = () => {
+  overlay.style.display = "none";
+};
+
+// Show the introductory pop-up window on pageload
 window.addEventListener("load", function () {
   setTimeout(function open(event) {
     popupWindow.style.display = "block";
@@ -73,14 +78,12 @@ startGame.addEventListener("click", function (event) {
   popupWindow.style.display = "none";
 
   // Remove the overlay
-  overlay.style.display = "none";
+  overlayNone();
 
   // Customize the introductory message based on player's name
   const userName = document.getElementById("nameinput");
   const userNameValue = userName.value;
-  console.log(userNameValue);
   const message = document.getElementById("message");
-  console.log(message);
   message.innerHTML = `<p>welcome ${userNameValue}, YOU ARE CURRENTLY AT LEVEL 1! <br>
   GUESS THE WORD TO WIN!</p>`;
 
@@ -90,7 +93,6 @@ startGame.addEventListener("click", function (event) {
 
 // Add event listener to the submit button that will triggers a couple of things
 const submitButton = document.getElementById("submitanswer");
-console.log(submitButton.textContent);
 
 submitButton.addEventListener("click", function (event) {
   event.preventDefault();
@@ -98,7 +100,6 @@ submitButton.addEventListener("click", function (event) {
   // Create an error message if word input is NOT 4
   const userInput = document.getElementById("wordinput");
   const userInputValue = userInput.value.toLowerCase();
-  console.log(userInputValue);
   const userInputLength = userInput.value.length;
   if (userInputLength !== 4) {
     const errormessage = document.getElementById("errormessage");
@@ -109,19 +110,17 @@ submitButton.addEventListener("click", function (event) {
   if (userInputLength === 4) {
     errormessage.innerHTML = "";
     counter++;
-    console.log(counter);
     for (let i = 0; i < userInputLength; i++) {
-      let gridContainer = document.getElementById("grid-container"); // declaring grandparent
-      let row = gridContainer.children[counter - 1]; // acessing the first child of the granparent - should coincide with the number of tries
-      let column = row.children[i]; // accessing the grandparent's children's children
-      console.log(column);
-      console.log(userInputValue[i]);
+      const gridContainer = document.getElementById("grid-container"); // declaring grandparent
+      const row = gridContainer.children[counter - 1]; // acessing the first child of the granparent - should coincide with the number of tries
+      const column = row.children[i]; // accessing the grandparent's children's children
       column.innerHTML = `${userInputValue[i]}`;
       if (userInputValue[i] === correctWord[i]) {
         column.style.backgroundColor = "#ACD8AA";
-        console.log("hello");
       } else if (correctWord.includes(userInputValue[i])) {
         column.style.backgroundColor = "#FFBE86";
+      } else {
+        column.style.backgroundColor = "#F1F0F9";
       }
     }
   }
@@ -132,13 +131,14 @@ submitButton.addEventListener("click", function (event) {
   //  Check and inform the player if they have won or lost
   if (userInputValue === correctWord) {
     window.clearInterval(timerInterval);
-    overlay.style.display = "block";
+    // overlay.style.display = "block";
+    overlayBlock();
     resultText.innerHTML = `<p>Congratulations, you have guessed correctly!<br />The word is <span class="correct-style">${correctWord}</span>.<br /><br />Are you ready for the next level? </p>`;
     popupResult.style.display = "block";
   } else if (userInputValue !== correctWord && counter === 5) {
-    console.log("you lose");
     window.clearInterval(timerInterval);
-    overlay.style.display = "block";
+    // overlay.style.display = "block";
+    overlayBlock();
     resultText.innerHTML = `<p>Sorry, you did not guess correctly!<br />The word is <span class="correct-style">${correctWord}</span>.<br /><br />Do you want to try again?</p>`;
     const restartButton = document.getElementById("continue");
     restartButton.innerText = "Restart Game";
