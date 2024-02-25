@@ -19,6 +19,13 @@ input:focus {
   border: solid 2px #e057db;
 }
 
+.main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 /* OVERLAY */
 #overlay {
   position: fixed; /* Sit on top of the page content */
@@ -265,15 +272,6 @@ input:focus {
   position: absolute;
   bottom: 0;
   left: 0;
-}
-
-/* OTHER CONTAINERS */
-
-.main-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
 /* RESULTS */
