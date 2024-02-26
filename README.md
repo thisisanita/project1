@@ -102,4 +102,4 @@ Javascript, CSS and HTML are used to build wordle+.
 - <https://stackoverflow.com/questions/56923127/get-the-input-value-after-pressing-submit-button-in-javascript>
 - Used the following prompts on google gemini:
   - To explain the countdown timer function provided by one of the website listed above.
-  - To explain on how .childen work for html elements, if it possible for an element to have grandchildrens and how to access those grandchildrens
+  - To explain on how .childen work for html elements, if it possible for an element to have grandchildrens and how to access those grandchildrens.
