@@ -23,13 +23,13 @@
 ### Gameboard - Error Message:
 
 - Player will not be able to submit a word containing more than 4 letters (maxlength of input is set to 4).
-- If player tries to submit a word which contains less than 4 letters, an error message will show below the the input in red.
+- If player tries to submit a word which contains less than 4 letters, an error message will show below the input in red.
 
 ![Error message](/Images/Frame2_errormessage.png)
 
 ### Gameboard - Guess The Word:
 
-- When the player submits a word, the word will be reflected on the game board and feedback will be provided.
+- When the player submits a word, that word will be reflected on the game board and feedback will be provided.
 - If the tile of a letter is green, it means the letter of the word guessed is in the correct spot.
 - If the tile of a letter is orange, it means the letter of the word guessed is not in the correct spot but present.
 - If the tile of the letter is grey, it means the letter of the word guessed is not present.
@@ -56,7 +56,7 @@ Javascript, CSS and HTML are used to build wordle+.
 
 ## Deployed Game:
 
-- To access wordle+, click [here] (https://thisisanita.github.io/wordleplus/).
+- To access wordle+, click [here](https://thisisanita.github.io/wordleplus/).
 - Please input your name and click on the "start" button to play wordle+.
 - Once the game is completed, a popup informing the game outcome will be triggered. Do note that the "restart game" and "continue" button is just for show as there is no event listeners attached to it. To attempt the game again, please refresh the page.
 
@@ -79,6 +79,27 @@ Javascript, CSS and HTML are used to build wordle+.
 - When the player decides to uses a hint, they will have to solve a addition mathematical question. The higher the level the player is in, the more complex the question.
 - An example of a mathematical question will be: " What is 1.703394 + 1003.04 + 6?"
 - While the player is solving the mathematical question, the clock will still be running.
-- Only one hint will be provided at a each level.
+- Only one hint will be provided at each level.
 
 ## References
+
+- <https://www.w3schools.com/howto/howto_js_popup.asp>
+- <https://www.w3schools.com/howto/howto_js_countdown.asp>
+- <https://daily-dev-tips.com/posts/vanilla-javascript-countdown/>
+- <https://codingartistweb.com/2021/08/show-popup-automatically-after-page-load-using-javascript/>
+- <https://www.linkedin.com/advice/3/how-can-you-create-pop-up-window-html-javascript-skills-html>
+- <https://www.freecodecamp.org/news/how-the-question-mark-works-in-javascript/>
+- <https://www.w3schools.com/js/js_timing.asp>
+- <https://www.w3schools.com/js/js_htmldom_nodes.asp>
+- <https://www.w3docs.com/snippets/css/how-to-align-the-content-of-a-div-to-the-bottom.html>
+- <https://www.codeinwp.com/snippets/change-placeholder-styles-html-inputs-with-css/#gref>
+- <https://stackoverflow.com/questions/16156594/how-to-change-border-color-of-textarea-on-focus>
+- <https://www.shecodes.io/athena/23781-how-to-convert-a-string-to-lowercase-in-javascript#:~:text=To%20convert%20a%20string%20to%20lowercase%2C%20we%20can%20use,toLowerCase()%20method%20in%20JavaScript.&text=let%20myString%20%3D%20%22HeLLo%20WoRLD!,output%3A%20%22hello%20world!%22>
+- <https://www.w3schools.com/howto/howto_css_overlay.asp>
+- <https://www.w3schools.com/css/css3_fonts.asp>
+- <https://www.w3schools.com/jsref/prop_element_children.asp>
+- <https://stackoverflow.com/questions/70075733/i-get-the-uncaught-typeerror-cannot-read-properties-of-null-reading-addevent>
+- <https://stackoverflow.com/questions/56923127/get-the-input-value-after-pressing-submit-button-in-javascript>
+- Used the following prompts on google gemini:
+  - To explain the countdown timer function provided by one of the website listed above.
+  - To explain on how .childen work for html elements, if it possible for an element to have grandchildrens and how to access those grandchildrens
