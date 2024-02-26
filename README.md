@@ -2,29 +2,35 @@
 
 ### Game Description
 
-Wordle+ follows the game of wordle, with a few additional features (refer to the Next Steps session for more details).
-For the MVP version of wordle+, only the basic features are built.
+- Wordle+ follows the game of wordle, with a few additional features (refer to the Next Steps session for more details).
+- For the MVP version of wordle+, only the basic features are built.
 
 ## Instructions
 
 - Player will have 2 minutes and 5 attempts to guess a four-letter to win.
 - For each guess, feedback will be provided on the game board.
 - If the letters of the word match the exact positions as the correct word, the tiles of those letters will turn green.
-- If the letters of the word do not match the exact position BUT exist in the correct word, the tiles of those letters will turn orange.
+- If the letters of the word do not match the exact position BUT are present in the correct word, the tiles of those letters will turn orange.
 
 ## Screenshots
 
 ### Frame 1
-
+Player will have to input their name and click "start" to play the game.
 ![Introductory popup](/Images/Frame1_popup.png)
 
 ### Frame 2
-
-!(/images/Frame2_errormessage.png)
+Player will not be able to submit a word containing more than 4 letters (maxlength of input is set to 4).
+If player tries to submit a word which contains less than 4 letters, an error message will show below the the input in red. 
+!(/Images/Frame2_errormessage.png)
 
 ### Frame 3
+When the player submits a word, the word will be reflected on the game board and feedback will be provided. 
+If the tile of a letter is green, it means the letter of the word guessed is in the correct spot.
+If the tile of a letter is orange, it means the letter of the word guessed is not in the correct spot but present.
+If the tile of the letter is grey, it means the letter of the word guessed is not present.
+!(/Images/Frame3_gameboard.png)
 
-!(/images/Frame3_gameboard.png)
+
 
 ## Technologies Used:
 
