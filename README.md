@@ -83,6 +83,7 @@ Javascript, CSS and HTML are used to build wordle+.
 
 ## References
 
+- [Figma board for wireframes. I also used dev mode to customize the CSS for the game.](https://www.figma.com/file/QhpFizr80MlX11EOsqsXt9/Project-1-Wireframe?type=design&node-id=0%3A1&mode=design&t=tcyswhWhBbxiVFDB-1)
 - <https://www.w3schools.com/howto/howto_js_popup.asp>
 - <https://www.w3schools.com/howto/howto_js_countdown.asp>
 - <https://daily-dev-tips.com/posts/vanilla-javascript-countdown/>
