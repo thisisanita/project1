@@ -1,11 +1,11 @@
 # WORDLE+
 
-### Game Description
+## Game Description
 
 - Wordle+ follows the game of wordle, with a few additional features (refer to the Next Steps session for more details).
 - For the MVP version of wordle+, only the basic features are built.
 
-### Instructions
+### Instructions:
 
 - Player will have 2 minutes and 5 attempts to guess a four-letter to win.
 - For each guess, feedback will be provided on the game board.
@@ -14,20 +14,20 @@
 
 ## Screenshots
 
-### Start Game Popup
+### Start Game Popup:
 
 - Player will have to input their name and click "start" to play the game.
 
 ![Introductory popup](/Images/Frame1_popup.png)
 
-### Gameboard - Error Message
+### Gameboard - Error Message:
 
 - Player will not be able to submit a word containing more than 4 letters (maxlength of input is set to 4).
 - If player tries to submit a word which contains less than 4 letters, an error message will show below the the input in red.
 
 ![Error message](/Images/Frame2_errormessage.png)
 
-### Gameboard - Guess The Word
+### Gameboard - Guess The Word:
 
 - When the player submits a word, the word will be reflected on the game board and feedback will be provided.
 - If the tile of a letter is green, it means the letter of the word guessed is in the correct spot.
@@ -36,7 +36,7 @@
 
 ![Gameboard](/Images/Frame3_gameboard.png)
 
-### Game Outcomes
+### Game Outcomes:
 
 - If the player guesses the correct word within 2 minutes, a popup will show to congratulate and prompt the player to continue to the next level.
 
@@ -54,7 +54,7 @@
 
 Javascript, CSS and HTML are used to build wordle+.
 
-## Deployed Game
+## Deployed Game:
 
 - To access wordle+, click [here] (https://thisisanita.github.io/wordleplus/).
 - Please input your name and click on the "start" button to play wordle+.
@@ -62,21 +62,23 @@ Javascript, CSS and HTML are used to build wordle+.
 
 ## Next Steps
 
-### Increasing the word count by 1 letter for each level
+### Increasing the word count by 1 letter for each level:
 
 - Everytime the player completes a level and moves on to the next, there will be an additional letter added to the word that the player must guess.
-- There wil be no limit to the number of levels and the player will be able to keep guessing as long as there is a word in the english dictionary that contains that specified amount of letters
+- There wil be no limit to the number of levels and the player will be able to keep guessing as long as there is a word in the english dictionary that contains that specified amount of letters.
 
-### Word difficulty options
+### Word difficulty options:
 
 - Before the player starts a game, an option will be provided to choose the difficulty of the words.
 - There should be 3 difficulty options, easy, medium and hard. Easy words will consist of common words wheras hard words will consist of uncommon words.
 
-### Hint to progress levels
+### Hint regarding the word:
 
 - Hints will be provided if the player is stuck at a level.
 - An example of a hint (taken from online dictionaries) for the word "read" will be: " To look at words or symbols and understand what they mean"
 - When the player decides to uses a hint, they will have to solve a addition mathematical question. The higher the level the player is in, the more complex the question.
+- An example of a mathematical question will be: " What is 1.703394 + 1003.04 + 6?"
 - While the player is solving the mathematical question, the clock will still be running.
+- Only one hint will be provided at a each level.
 
 ## References
