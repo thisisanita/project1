@@ -33,7 +33,7 @@ const startTimer = () => {
     timer.innerHTML =
       (minute < 10 ? "0" + minute : minute) +
       ":" +
-      (second < 10 ? "0" + second : second); // If minute is less than then, add a 0 in front of the minute. else, just minute will do. Same for seconds.
+      (second < 10 ? "0" + second : second); // If minute is less than 10, add a 0 in front of the minute. else, just minute will do. Same for seconds.
     if (second === 0) {
       if (minute === 0) {
         clearInterval(timerInterval); // Clear the timer
@@ -63,18 +63,18 @@ const overlayNone = () => {
   overlay.style.display = "none";
 };
 
-// Show the introductory pop-up window on pageload
+// Show the start game popup window on page load
 window.addEventListener("load", function () {
   setTimeout(function open(event) {
     popupWindow.style.display = "block";
   }, 1000);
 });
 
-// Add event listener to the start button on the popup window for several actions to take place.
+// Add event listener to the start button on the popup window to trigger several actions
 startGame.addEventListener("click", function (event) {
   event.preventDefault();
 
-  // Close the introductory popup
+  // Close the introductory pop-up
   popupWindow.style.display = "none";
 
   // Remove the overlay

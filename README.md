@@ -60,7 +60,7 @@ Javascript, CSS and HTML are used to build wordle+.
 - Please input your name and click on the "start" button to play wordle+.
 - Once the game is completed, a popup informing the game outcome will be triggered. Do note that the "restart game" and "continue" button is just for show as there is no event listeners attached to it. To attempt the game again, please refresh the page.
 
-## Next Steps
+## Planned Future Enhancements
 
 ### Increasing the word count by 1 letter for each level:
 
