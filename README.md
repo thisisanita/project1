@@ -15,20 +15,22 @@
 ## Screenshots
 
 ### Frame 1
-Player will have to input their name and click "start" to play the game.
+- Player will have to input their name and click "start" to play the game.
+  
 ![Introductory popup](/Images/Frame1_popup.png)
 
 ### Frame 2
-Player will not be able to submit a word containing more than 4 letters (maxlength of input is set to 4).
-If player tries to submit a word which contains less than 4 letters, an error message will show below the the input in red. 
-!(/Images/Frame2_errormessage.png)
+- Player will not be able to submit a word containing more than 4 letters (maxlength of input is set to 4).
+- If player tries to submit a word which contains less than 4 letters, an error message will show below the the input in red.
+
+![Error message](/Images/Frame2_errormessage.png)
 
 ### Frame 3
-When the player submits a word, the word will be reflected on the game board and feedback will be provided. 
-If the tile of a letter is green, it means the letter of the word guessed is in the correct spot.
-If the tile of a letter is orange, it means the letter of the word guessed is not in the correct spot but present.
-If the tile of the letter is grey, it means the letter of the word guessed is not present.
-!(/Images/Frame3_gameboard.png)
+- When the player submits a word, the word will be reflected on the game board and feedback will be provided. 
+- If the tile of a letter is green, it means the letter of the word guessed is in the correct spot.
+- If the tile of a letter is orange, it means the letter of the word guessed is not in the correct spot but present.
+- If the tile of the letter is grey, it means the letter of the word guessed is not present.
+![Gameboard](/Images/Frame3_gameboard.png)
 
 
 
