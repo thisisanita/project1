@@ -16,7 +16,7 @@ For the MVP version of wordle+, only the basic features are built.
 
 ### Frame 1
 
-!(/images/Frame1_popup.png)
+![Introductory popup](/images/Frame1_popup.png)
 
 ### Frame 2
 
