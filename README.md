@@ -5,7 +5,7 @@
 - Wordle+ follows the game of wordle, with a few additional features (refer to the Next Steps session for more details).
 - For the MVP version of wordle+, only the basic features are built.
 
-## Instructions
+### Instructions
 
 - Player will have 2 minutes and 5 attempts to guess a four-letter to win.
 - For each guess, feedback will be provided on the game board.
@@ -32,7 +32,9 @@
 - If the tile of the letter is grey, it means the letter of the word guessed is not present.
 ![Gameboard](/Images/Frame3_gameboard.png)
 
-
+### Frame 4
+- If the player guesses the correct word within 2 minutes, a popup will show to congratulate and prompt him/her to continue to the next level.
+![Winner popup](/Images/Frame4_winpopup.png)
 
 ## Technologies Used:
 
